@@ -40,12 +40,27 @@ public class NumberDisplay
      */
     public String getDisplayValue()
     {
-        if(value < 10) {
-            return "0" + value;
+        String displayValue;
+        if (limit == 24) {
+            if (value % 12 == 0) {
+                displayValue = "12";
+            } 
+            else if(value % 12 < 10) {
+                displayValue = "0" + (value % 12);
+            }
+            else {
+                displayValue = "" + (value % 12);
+            }
         }
         else {
-            return "" + value;
+            if (value < 10) {
+                displayValue = "0" + value;
+            }
+            else {
+                displayValue = "" + value;
+            }
         }
+        return displayValue;
     }
 
     /**
